@@ -1,16 +1,7 @@
-board = [
-    [7,8,0,4,0,0,1,2,0],
-    [6,0,0,0,7,5,0,0,9],
-    [0,0,0,6,0,1,0,7,8],
-    [0,0,7,0,4,0,2,6,0],
-    [0,0,1,0,0,0,9,3,0],
-    [9,0,4,0,6,0,0,0,0],
-    [0,7,0,0,0,0,0,1,2],
-    [1,2,0,0,0,7,4,0,0],
-    [0,0,9,2,0,0,0,0,7]
-]
-
 def find_empty(bo):
+    """
+    Find an empty cell(0) in the Sudoku board.
+    """
     for i in range(len(bo)):
         for j in range(len(bo[0])):
             if bo[i][j] == 0:
@@ -19,6 +10,9 @@ def find_empty(bo):
     return None
 
 def solve(bo):
+    """
+    Solve the Sudoku puzzle using backtracking.
+    """
     find = find_empty(bo)
     if not find:
         return True
@@ -37,7 +31,9 @@ def solve(bo):
     return False
 
 def valid(bo, num, pos):
-    
+    """
+    Check if a number can be placed at a given position on the Sudoku board.
+    """
     for i in range(len(bo[0])):
         if bo[pos[0]][i] == num and pos[1] != i:
             return False
@@ -57,25 +53,3 @@ def valid(bo, num, pos):
                 return False
 
     return True
-
-
-def print_board(bo):
-    for i in range(len(bo)):
-        if i % 3 == 0 and i != 0:
-            print("- - - - - - - - - - - - - ")
-
-        for j in range(len(bo[0])):
-            if j % 3 == 0 and j != 0:
-                print(" | ", end="")
-
-            if j == 8:
-                print(bo[i][j])
-            else:
-                print(str(bo[i][j]) + " ", end="")
-
-print("______________________")
-print_board(board)
-solve(board)
-print("______________________")
-print_board(board)
-print("______________________")
