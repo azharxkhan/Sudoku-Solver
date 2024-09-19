@@ -1,7 +1,6 @@
 import pygame
 import sys
-from sudoku_solver import solve  # Assuming you have a function that solves the Sudoku puzzle
-import time
+from sudoku_solver import solve  
 
 # Define the empty Sudoku board
 board = [
@@ -16,18 +15,8 @@ board = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0]
 ]
 
-# User-entered numbers stored separately from solved numbers
-user_board = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0]
-]
+# To track user-entered numbers
+user_board = [[0 for _ in range(9)] for _ in range(9)]
 
 pygame.init()
 
@@ -43,16 +32,17 @@ pygame.display.set_caption("Sudoku Solver")
 
 def draw_board():
     """
-    Draws the Sudoku board and displays user-entered numbers in black and solved numbers in blue.
+    Draws the Sudoku board, displaying user-entered numbers in black
+    and solver-added numbers in blue.
     """
     for i in range(9):
         for j in range(9):
-            if user_board[i][j] != 0:
+            if user_board[i][j] != 0:  # User-entered number
                 font = pygame.font.Font(None, FONT_SIZE)
                 text = font.render(str(user_board[i][j]), True, BLACK)
                 text_rect = text.get_rect(center=(j * 60 + 30, i * 60 + 30))
                 screen.blit(text, text_rect)
-            elif board[i][j] != 0:
+            elif board[i][j] != 0:  # Solver-added number
                 font = pygame.font.Font(None, FONT_SIZE)
                 text = font.render(str(board[i][j]), True, BLUE)
                 text_rect = text.get_rect(center=(j * 60 + 30, i * 60 + 30))
@@ -91,21 +81,10 @@ def handle_input(row, col, event):
         number = int(event.unicode)
         if 1 <= number <= 9:
             user_board[row][col] = number
+            board[row][col] = number  # Keep the board in sync
         else:
             user_board[row][col] = 0
-
-
-def reveal_solution():
-    """
-    Slowly reveals the solution by showing each number one by one.
-    """
-    for i in range(9):
-        for j in range(9):
-            if user_board[i][j] == 0 and board[i][j] != 0:
-                user_board[i][j] = board[i][j]
-                draw_board()
-                pygame.display.update()
-                time.sleep(0.1)
+            board[row][col] = 0  # Reset to 0 if invalid number is entered
 
 
 def main():
@@ -132,8 +111,7 @@ def main():
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
                     if solve_button.collidepoint(event.pos):
-                        solve(board)  
-                        reveal_solution()  
+                        solve(board)  # Solve the puzzle; solved numbers are added in blue
                     else:
                         selected_cell = get_cell(event.pos)
             elif event.type == pygame.KEYDOWN and selected_cell:
