@@ -1,36 +1,104 @@
-# Sudoku Solver
+# Sudoku Solver Game
 
-This Python script provides a graphical interface to solve Sudoku puzzles using the backtracking algorithm. It utilizes the Pygame library for creating the GUI and provides functionality to solve the Sudoku puzzle with a single click.
+## Description
 
-## Introduction
-
-The Sudoku Solver script is designed to help you solve Sudoku puzzles efficiently. It provides an interactive interface where you can input the initial Sudoku board and then click on the "Solve" button to get the solution displayed on the screen.
+This is a simple graphical Sudoku solver built using Python and Pygame. The application allows users to input numbers on a blank Sudoku grid and solve the puzzle by pressing the "Solve" button. The solver will attempt to complete the puzzle and display the results.
 
 ## Features
 
-- **Graphical Interface**: Utilizes Pygame library to create a graphical interface for solving Sudoku puzzles.
-- **Backtracking Algorithm**: Implements a backtracking algorithm to find the solution for the Sudoku puzzle.
-- **Interactive**: Provides a "Solve" button for easy solving of the puzzle with a single click.
-- **Customizable**: Allows customization of the initial Sudoku board for solving different puzzles.
-
-## How to Use
-
-1. Install Python and Pygame library if not already installed.
-2. Copy the script into your Python environment.
-3. Run the script, and the Sudoku Solver window will appear.
-4. Input the initial Sudoku board into the script.
-5. Click on the "Solve" button to solve the Sudoku puzzle.
-6. The solution will be displayed on the screen.
+- Interactive 9x9 Sudoku board.
+- Input numbers by clicking on the cells and typing.
+- Solve the Sudoku puzzle with the press of a button.
+- User-entered numbers are displayed in black, while solved numbers are displayed in blue.
 
 ## Requirements
 
 - Python 3.x
-- Pygame library
+- Pygame
+- Optional: `sudoku_solver` (If the `solve` function relies on an external library)
 
-## Credits
+## Installation
 
-- **Author**: Azhar
-- **Sudoku Solver Algorithm**: Developed by Azhar
-- **Pygame Library**: [Pygame](https://www.pygame.org/)
+### Linux/macOS
 
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/azharxkhan/Sudoku-Solver.git
+    cd sudoku-solver-game
+    ```
 
+2. **Make the Bash script executable**:
+    Ensure the script has executable permissions:
+    ```bash
+    chmod +x run_sudoku.sh
+    ```
+
+3. **Run the setup script**:  
+    The provided `run_sudoku.sh` script will:
+    - Create a virtual environment.
+    - Install the required dependencies (Pygame and optionally `sudoku_solver`).
+    - Run the application.
+    ```bash
+    bash run_sudoku.sh
+    ```
+
+    The game will start automatically once the setup completes.
+
+### Windows
+
+1. **Clone the repository**:
+    Open the command prompt and run:
+    ```cmd
+    git clone https://github.com/your-repo/sudoku-solver-game.git
+    cd sudoku-solver-game
+    ```
+
+2. **Run the batch file**:  
+    The `setup_sudoku.bat` script will:
+    - Create a virtual environment.
+    - Install the required dependencies (Pygame and optionally `sudoku_solver`).
+    - Run the application.
+    ```cmd
+    setup_sudoku.bat
+    ```
+
+    The game will start automatically once the setup completes.
+
+## Running the Game Manually
+
+If you prefer to run the game manually after the setup:
+
+- **For Linux/macOS**:  
+    1. Activate the virtual environment:
+    ```bash
+    source venv/bin/activate
+    ```
+    2. Run the game:
+    ```bash
+    python3 sudoku_game.py
+    ```
+
+- **For Windows**:  
+    1. Activate the virtual environment:
+    ```cmd
+    venv\Scripts\activate
+    ```
+    2. Run the game:
+    ```cmd
+    python sudoku_game.py
+    ```
+
+## Usage
+
+1. Start the game.
+2. Click on any cell in the 9x9 grid to select it.
+3. Enter numbers using your keyboard (1-9).
+4. Press the "Solve" button to solve the puzzle.
+5. Solved numbers will appear in blue, while user-entered numbers will remain black.
+
+## File Structure
+
+- `sudoku_game.py`: Main game file containing the game logic.
+- `sudoku_solver.py`: That solves the suduko and returns the numbers.
+- `run_sudoku.sh`: Bash script to automate the setup and running of the game (Linux/macOS).
+- `setup_sudoku.bat`: Windows batch script for setup and running the game.
