@@ -15,7 +15,6 @@ This is a simple graphical Sudoku solver built using Python and Pygame. The appl
 
 - Python 3.x
 - Pygame
-- Optional: `sudoku_solver` (If the `solve` function relies on an external library)
 
 ## Installation
 
