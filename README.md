@@ -68,11 +68,19 @@ This is a simple graphical Sudoku solver built using Python and Pygame. The appl
 If you prefer to run the game manually after the setup:
 
 - **For Linux/macOS**:  
-    1. Activate the virtual environment:
+    1. Make virtual environment(Must have pygame and venv installed):
+    ```bash
+    python3 -m venv venv
+    ```
+    2. Activate the virtual environment:
     ```bash
     source venv/bin/activate
     ```
-    2. Run the game:
+    3. Install the required dependencies:
+    ```bash
+    pip install pygame
+    ```
+    3. Run the game:
     ```bash
     python3 sudoku_game.py
     ```
