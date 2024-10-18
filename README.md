@@ -35,7 +35,7 @@ This is a simple graphical Sudoku solver built using Python and Pygame. The appl
 3. **Run the setup script**:  
     The provided `sudoku_game.sh` script will:
     - Create a virtual environment.
-    - Install the required dependencies (Pygame and optionally `sudoku_solver`).
+    - Install the required dependencies (Pygame sudoku_game).
     - Run the application.
     ```bash
     ./sudoku_game.sh
@@ -55,7 +55,7 @@ This is a simple graphical Sudoku solver built using Python and Pygame. The appl
 2. **Run the batch file**:  
     The `setup_sudoku.bat` script will:
     - Create a virtual environment.
-    - Install the required dependencies (Pygame and optionally `sudoku_solver`).
+    - Install the required dependencies (Pygame sudoku_game).
     - Run the application.
     ```cmd
     setup_sudoku.bat
