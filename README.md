@@ -29,16 +29,16 @@ This is a simple graphical Sudoku solver built using Python and Pygame. The appl
 2. **Make the Bash script executable**:
     Ensure the script has executable permissions:
     ```bash
-    chmod +x run_sudoku.sh
+    chmod +x sudoku_game.sh
     ```
 
 3. **Run the setup script**:  
-    The provided `run_sudoku.sh` script will:
+    The provided `sudoku_game.sh` script will:
     - Create a virtual environment.
     - Install the required dependencies (Pygame and optionally `sudoku_solver`).
     - Run the application.
     ```bash
-    bash run_sudoku.sh
+    ./sudoku_game.sh
     ```
 
     The game will start automatically once the setup completes.
@@ -99,5 +99,5 @@ If you prefer to run the game manually after the setup:
 
 - `sudoku_game.py`: Main game file containing the game logic.
 - `sudoku_solver.py`: That solves the suduko and returns the numbers.
-- `run_sudoku.sh`: Bash script to automate the setup and running of the game (Linux/macOS).
+- `sudoku_game.sh`: Bash script to automate the setup and running of the game (Linux/macOS).
 - `setup_sudoku.bat`: Windows batch script for setup and running the game.
