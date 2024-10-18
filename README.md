@@ -98,6 +98,6 @@ If you prefer to run the game manually after the setup:
 ## File Structure
 
 - `sudoku_game.py`: Main game file containing the game logic.
-- `sudoku_solver.py`: That solves the suduko and returns the numbers.
+- `sudoku_solver.py`: That solves the sudoku and returns the numbers.
 - `sudoku_game.sh`: Bash script to automate the setup and running of the game (Linux/macOS).
 - `setup_sudoku.bat`: Windows batch script for setup and running the game.
