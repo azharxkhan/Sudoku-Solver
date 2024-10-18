@@ -13,7 +13,7 @@ This is a simple graphical Sudoku solver built using Python and Pygame. The appl
 
 ## Requirements
 
-- Python 3.x
+- Python 3
 - Pygame
 
 ## Installation
