@@ -81,10 +81,10 @@ def handle_input(row, col, event):
         number = int(event.unicode)
         if 1 <= number <= 9:
             user_board[row][col] = number
-            board[row][col] = number  # Keep the board in sync
+            board[row][col] = number  
         else:
             user_board[row][col] = 0
-            board[row][col] = 0  # Reset to 0 if invalid number is entered
+            board[row][col] = 0  
 
 
 def main():
