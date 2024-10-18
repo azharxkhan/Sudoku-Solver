@@ -22,10 +22,6 @@ pip install --upgrade pip
 echo "Installing dependencies..."
 pip install pygame
 
-# Optional: Install sudoku_solver if it exists in your project or as a package
-# Uncomment the following line if you need to install sudoku_solver as well
-# pip install sudoku-solver
-
 # Step 5: Run the application
 echo "Running the Sudoku game..."
 python3 sudoku_game.py

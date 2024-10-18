@@ -22,10 +22,6 @@ REM Step 4: Install necessary dependencies (pygame and sudoku_solver)
 echo Installing dependencies...
 pip install pygame
 
-REM Optional: Install sudoku_solver if it exists in your project or as a package
-REM Uncomment the following line if you need to install sudoku_solver as well
-REM pip install sudoku-solver
-
 REM Step 5: Run the application
 echo Running the Sudoku game...
 python sudoku_game.py
