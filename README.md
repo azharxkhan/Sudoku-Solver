@@ -58,7 +58,7 @@ This is a simple graphical Sudoku solver built using Python and Pygame. The appl
     - Install the required dependencies (Pygame sudoku_game).
     - Run the application.
     ```cmd
-    setup_sudoku.bat
+    ./setup_sudoku.bat
     ```
 
     The game will start automatically once the setup completes.
