@@ -2,6 +2,19 @@ import pygame
 import sys
 from sudoku_solver import solve  
 
+#intial board for reset
+initial_board = [
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0]
+]
+
 # Define the empty Sudoku board
 board = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -86,6 +99,11 @@ def handle_input(row, col, event):
             user_board[row][col] = 0
             board[row][col] = 0  
 
+def reset_board():
+    global board, user_board
+    board = [row[:] for row in initial_board]
+    user_board = [[0 for _ in range(9)] for _ in range(9)]
+
 
 def main():
     """
@@ -98,11 +116,19 @@ def main():
         draw_board()
 
         solve_button = pygame.Rect(200, 550, 140, 40)
+        reset_button = pygame.Rect(20, 550, 140, 40)
+
         pygame.draw.rect(screen, (0, 255, 0), solve_button)
+        pygame.draw.rect(screen, (255, 0, 0), reset_button)
+
         solve_font = pygame.font.Font(None, 36)
         solve_text = solve_font.render("Solve", True, BLACK)
         solve_text_rect = solve_text.get_rect(center=solve_button.center)
         screen.blit(solve_text, solve_text_rect)
+
+        reset_text = solve_font.render("Reset", True, BLACK)
+        reset_text_rect = reset_text.get_rect(center=reset_button.center)
+        screen.blit(reset_text, reset_text_rect)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -111,7 +137,9 @@ def main():
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
                     if solve_button.collidepoint(event.pos):
-                        solve(board)  # Solve the puzzle; solved numbers are added in blue
+                        solve(board)
+                    elif reset_button.collidepoint(event.pos):
+                        reset_board()
                     else:
                         selected_cell = get_cell(event.pos)
             elif event.type == pygame.KEYDOWN and selected_cell:
