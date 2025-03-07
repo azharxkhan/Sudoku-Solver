@@ -119,7 +119,7 @@ def solve(bo):
             screen.fill(WHITE)
             draw_board()
             pygame.display.update()
-            pygame.time.delay(50)  
+            pygame.time.delay(20)  
 
             if solve(bo):
                 return True
@@ -128,7 +128,7 @@ def solve(bo):
             screen.fill(WHITE)
             draw_board()
             pygame.display.update()
-            pygame.time.delay(50)
+            pygame.time.delay(20)
 
     return False
 
