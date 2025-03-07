@@ -9,6 +9,7 @@ def find_empty(bo):
 
     return None
 
+#unused solve
 def solve(bo):
     """
     Solve the Sudoku puzzle using backtracking.

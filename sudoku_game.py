@@ -1,6 +1,6 @@
 import pygame
 import sys
-from sudoku_solver import solve  
+from sudoku_solver import find_empty, valid  
 
 #intial board for reset
 initial_board = [
@@ -104,6 +104,33 @@ def reset_board():
     board = [row[:] for row in initial_board]
     user_board = [[0 for _ in range(9)] for _ in range(9)]
 
+
+def solve(bo):
+    """Solves the Sudoku puzzle using backtracking with visualization of each number being entered"""
+    find = find_empty(bo)
+    if not find:
+        return True  # Puzzle is solved
+
+    row, col = find
+
+    for i in range(1, 10):
+        if valid(bo, i, (row, col)):
+            bo[row][col] = i
+            screen.fill(WHITE)
+            draw_board()
+            pygame.display.update()
+            pygame.time.delay(50)  
+
+            if solve(bo):
+                return True
+
+            bo[row][col] = 0  
+            screen.fill(WHITE)
+            draw_board()
+            pygame.display.update()
+            pygame.time.delay(50)
+
+    return False
 
 def main():
     """
